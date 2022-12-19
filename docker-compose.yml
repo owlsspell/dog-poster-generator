@@ -1,0 +1,26 @@
+#tet
+version: "3.5"
+services:
+  # server:
+  #   container_name: back-dog
+  #   image: node:18-alpine3.15
+  #   ports:
+  #     - "5000:5000"
+  #   working_dir: /code/back
+  #   volumes:
+  #     - ./backend:/code/back
+  #   command: npm run dev
+  #   restart: always
+
+  front:
+    image: node:18-alpine3.15
+    command: npm run dev
+    working_dir: /code/front
+    ports:
+      - "3000:3000"
+    container_name: front-dog
+    volumes:
+      - ./frontend:/code/front
+    # depends_on:
+    # - server
+    restart: always
